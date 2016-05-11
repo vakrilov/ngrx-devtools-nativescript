@@ -52,13 +52,10 @@ export class NSDockMonitor implements AfterViewInit {
     private offsetShown: number;
     private offsetHidden: number;
 
-    constructor() {
-        var height = screen.mainScreen.heightDIPs - STATUS_BAR_HEIGHT - SOFT_BUTTON_HEIGHT;
+    ngAfterViewInit() {
+        const height = screen.mainScreen.heightDIPs - STATUS_BAR_HEIGHT - SOFT_BUTTON_HEIGHT;
         this.offsetHidden = height - this.toggleLength;
         this.offsetShown = height * this.screenCover - this.toggleLength;
-    }
-
-    ngAfterViewInit() {
         this.toggleBtn = <View>this.toggleBtnEl.nativeElement;
         this.dock = <View>this.dockEl.nativeElement;
 
