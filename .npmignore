@@ -1,0 +1,9 @@
+.vscode
+.npmignore
+hooks
+
+*.tgz
+*.js.map
+*.md
+*.ts
+!*.d.ts
