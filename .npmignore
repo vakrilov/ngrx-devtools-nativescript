@@ -7,3 +7,5 @@ hooks
 *.md
 *.ts
 !*.d.ts
+
+global.d.ts

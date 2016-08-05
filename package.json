@@ -1,8 +1,9 @@
 {
   "name": "ngrx-devtools-nativescript",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Nativescript devtools for ngrx",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "tsc -p ."
