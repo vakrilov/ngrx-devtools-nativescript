@@ -4,8 +4,7 @@ import {
   ViewEncapsulation,
   Input,
   Output,
-  EventEmitter,
-  HostListener
+  EventEmitter
 } from '@angular/core';
 
 import {LogEntryItem} from './log-entry-item';

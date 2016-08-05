@@ -5,8 +5,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  HostListener,
-  HostBinding
 } from '@angular/core';
 
 @Component({
@@ -33,13 +31,13 @@ import {
     }
   `]
 })
-export class LogMonitorButton{
+export class LogMonitorButton {
   @Input() disabled: boolean;
   @Output() action = new EventEmitter();
   @Input() text = "";
 
-  handleAction(){
-    if(!this.disabled){
+  handleAction() {
+    if (!this.disabled) {
       this.action.next({});
     }
   }

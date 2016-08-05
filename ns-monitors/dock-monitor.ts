@@ -1,8 +1,8 @@
-import {Inject, Component, ViewEncapsulation, ChangeDetectionStrategy, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
+import {Component, ChangeDetectionStrategy, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {View} from "ui/core/view";
 import {screen} from "platform";
-import {NSLogMonitor } from "./log-monitor"
+import {NSLogMonitor } from "./log-monitor";
 import {device, platformNames} from "platform";
 
 const isIOS = device.os === platformNames.ios;

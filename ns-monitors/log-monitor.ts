@@ -1,8 +1,8 @@
-import {Inject, Component, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import {StoreDevtools} from '@ngrx/devtools';
+import {StoreDevtools} from '@ngrx/store-devtools';
 
 import {LogEntryItem} from './log-entry-item';
 import {LogMonitorEntry} from './log-monitor-entry';
@@ -56,13 +56,13 @@ import {LogMonitorButton} from './log-monitor-button';
     </grid-layout>
   `
 })
-export class NSLogMonitor{
+export class NSLogMonitor {
   private items$: Observable<LogEntryItem[]>;
   private canRevert$: Observable<boolean>;
   private canSweep$: Observable<boolean>;
   private canCommit$: Observable<boolean>;
 
-  constructor(private devtools: StoreDevtools){
+  constructor(private devtools: StoreDevtools) {
     this.canRevert$ = devtools.liftedState.map(s => !(s.computedStates.length > 1));
     this.canSweep$ = devtools.liftedState.map(s => !(s.skippedActionIds.length > 0));
     this.canCommit$ = devtools.liftedState.map(s => !(s.computedStates.length > 1));
@@ -71,7 +71,7 @@ export class NSLogMonitor{
       .map(({ actionsById, skippedActionIds, stagedActionIds, computedStates }) => {
         const actions = [];
 
-        for (let i = 0; i < stagedActionIds.length; i++){
+        for (let i = 0; i < stagedActionIds.length; i++) {
           const actionId = stagedActionIds[i];
           const action = actionsById[actionId].action;
           const { state, error } = computedStates[i];
@@ -95,23 +95,23 @@ export class NSLogMonitor{
       });
   }
 
-  handleToggle(id: number){
+  handleToggle(id: number) {
     this.devtools.toggleAction(id);
   }
 
-  handleReset(){
+  handleReset() {
     this.devtools.reset();
   }
 
-  handleRollback(){
+  handleRollback() {
     this.devtools.rollback();
   }
 
-  handleSweep(){
+  handleSweep() {
     this.devtools.sweep();
   }
 
-  handleCommit(){
+  handleCommit() {
     this.devtools.commit();
   }
 }
