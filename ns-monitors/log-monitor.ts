@@ -5,12 +5,9 @@ import 'rxjs/add/operator/map';
 import {StoreDevtools} from '@ngrx/store-devtools';
 
 import {LogEntryItem} from './log-entry-item';
-import {LogMonitorEntry} from './log-monitor-entry';
-import {LogMonitorButton} from './log-monitor-button';
 
 @Component({
   selector: 'ns-log-monitor',
-  directives: [LogMonitorEntry, LogMonitorButton],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
     .container {

@@ -8,12 +8,10 @@ import {
 } from '@angular/core';
 
 import {LogEntryItem} from './log-entry-item';
-import {LogMonitorButton} from './log-monitor-button';
 
 @Component({
   selector: 'log-monitor-entry',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: [LogMonitorButton],
   encapsulation: ViewEncapsulation.Emulated,
   template: `
     <grid-layout columns="* auto" class="container" [class.even]="even" (tap)="handleToggle()"> 
