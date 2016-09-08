@@ -1,0 +1,19 @@
+﻿.board {
+    horizontal-align: center;    
+    vertical-align: top;
+}
+
+.win {
+    font-size: 56;
+    font-weight: bold;
+    horizontal-align: center;
+}
+
+.next {
+    horizontal-align: center;
+}
+
+.tile {
+    border-width: 1;
+    border-color: gray;
+}

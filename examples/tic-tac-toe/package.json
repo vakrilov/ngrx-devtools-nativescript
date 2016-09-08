@@ -4,7 +4,7 @@
   "readme": "NativeScript Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.counter",
+    "id": "org.nativescript.tictactoe",
     "tns-android": {
       "version": "2.2.0"
     }

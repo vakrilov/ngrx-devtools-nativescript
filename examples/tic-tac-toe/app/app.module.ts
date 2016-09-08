@@ -6,15 +6,18 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NgModule } from "@angular/core";
 import { StoreModule } from '@ngrx/store';
 
-import { counterReducer } from "./counter.reducer";
 import { AppComponent } from "./app.component";
-
+import { boardReducer } from './board.reducer';
+import { logger } from './logger.metareducer';
+import { BoardComponent } from './board.component';
+import { PlayerPipe } from './player.pipe';
 
 @NgModule({
+  declarations: [AppComponent, BoardComponent, PlayerPipe],
   imports: [
     NativeScriptModule,
     NativeScriptDevToolsMonitors,
-    StoreModule.provideStore({ counter: counterReducer }),
+    StoreModule.provideStore({ board: logger(boardReducer) }),
     StoreDevtoolsModule.instrumentStore()
   ],
   bootstrap: [AppComponent]
