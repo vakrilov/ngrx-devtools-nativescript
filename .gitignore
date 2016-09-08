@@ -4,8 +4,8 @@ lib
 hooks
 **/*.js
 **/*.js.map
-.DC_Store
 *.tgz
+.DC_Store
 
 *.d.ts
 !global.d.ts

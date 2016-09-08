@@ -1,6 +1,6 @@
 {
   "name": "ngrx-devtools-nativescript",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Nativescript devtools for ngrx",
   "main": "index.js",
   "typings": "index.d.ts",

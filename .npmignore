@@ -7,7 +7,8 @@ hooks
 *.md
 *.ts
 !*.d.ts
+.DC_Store
 
 global.d.ts
 
-\demo
+\examples
