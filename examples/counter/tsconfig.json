@@ -6,12 +6,10 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noEmitHelpers": true,
-        "noEmitOnError": true,
-        "declaration": true
+        "noEmitOnError": true
     },
     "exclude": [
         "node_modules",
-        "platforms",
-        "examples"
+        "platforms"
     ]
 }

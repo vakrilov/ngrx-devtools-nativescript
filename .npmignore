@@ -9,3 +9,5 @@ hooks
 !*.d.ts
 
 global.d.ts
+
+\demo
