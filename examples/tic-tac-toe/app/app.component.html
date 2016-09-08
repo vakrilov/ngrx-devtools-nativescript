@@ -1,0 +1,13 @@
+<grid-layout rows="50, auto, auto, *">
+  <button text="new game" (tap)="reset()"></button>
+
+  <label row="1" [text]="currentPlayer ? 'X is next' : 'O is next'" class="next" ></label>
+
+  <grid-layout row="2" class="board">
+    <board [data]="board$ | async" (action)="positionSelected($event, currentPlayer)" ></board>
+  </grid-layout>
+
+  <label row="2" *ngIf="winner" [text]="winner > 0 ? 'X WINS' : 'O WINS'" class="win"></label>
+
+  <ns-dock-monitor screenCover="0.5"></ns-dock-monitor>
+</grid-layout>

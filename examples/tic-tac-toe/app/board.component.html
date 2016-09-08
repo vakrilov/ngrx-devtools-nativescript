@@ -1,0 +1,7 @@
+<wrap-layout itemWidth="50" itemHeight="50" width="150" height="150">
+  <button 
+    *ngFor="let val of data; let i = index" 
+    [text]="val | player" 
+    (tap)="positionTap(i, val)"
+    class="tile"></button>
+</wrap-layout>

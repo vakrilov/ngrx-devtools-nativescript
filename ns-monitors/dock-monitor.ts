@@ -1,18 +1,14 @@
 import {Component, ChangeDetectionStrategy, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {View} from "ui/core/view";
 import {screen} from "platform";
-import {NSLogMonitor } from "./log-monitor";
-import {device, platformNames} from "platform";
+import {isIOS} from "platform";
 
-const isIOS = device.os === platformNames.ios;
 const TOGGLE_BTN_HEIGHT = 40;
 const STATUS_BAR_HEIGHT = isIOS ? 22 : 25;
 const SOFT_BUTTON_HEIGHT = isIOS ? 0 : 55;
 
 @Component({
     selector: 'ns-dock-monitor',
-    directives: [NSLogMonitor],
     changeDetection: ChangeDetectionStrategy.OnPush,
     styles: [`
     .toggle {
