@@ -1,16 +1,14 @@
 import {Component, ChangeDetectionStrategy, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
 import {View} from "ui/core/view";
-import {screen} from "platform";
-import {isIOS} from "platform";
+import {Page} from "ui/page";
+import {screen, isIOS} from "platform";
 
 const TOGGLE_BTN_HEIGHT = 40;
-const STATUS_BAR_HEIGHT = isIOS ? 22 : 25;
-const SOFT_BUTTON_HEIGHT = isIOS ? 0 : 55;
 
 @Component({
-    selector: 'ns-dock-monitor',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    styles: [`
+  selector: 'ns-dock-monitor',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: [`
     .toggle {
         color: white;
         border-radius:` + TOGGLE_BTN_HEIGHT / 2 + `;
@@ -26,8 +24,8 @@ const SOFT_BUTTON_HEIGHT = isIOS ? 0 : 55;
         vertical-align: top;
     }
   `],
-    template: `
-    <grid-layout rows="auto *" #dock class="dock" rowSpan="100" colSpan="100">
+  template: `
+    <grid-layout rows="auto *" #dock class="dock" rowSpan="100" colSpan="100" translateY="1000">
       <label text="^" (tap)="toggleShown()" #toggle [width]="toggleLength" [height]="toggleLength" class="toggle"></label>
       <grid-layout row="1">
         <ns-log-monitor></ns-log-monitor>
@@ -36,37 +34,47 @@ const SOFT_BUTTON_HEIGHT = isIOS ? 0 : 55;
   `
 })
 export class NSDockMonitor implements AfterViewInit {
-    @Input() screenCover: number = 0.5;
-    @ViewChild("toggle") toggleBtnEl: ElementRef;
-    @ViewChild("dock") dockEl: ElementRef;
+  @Input() screenCover: number = 0.5;
+  @ViewChild("toggle") toggleBtnEl: ElementRef;
+  @ViewChild("dock") dockEl: ElementRef;
 
-    private shown: boolean = false;
-    toggleLength: number = TOGGLE_BTN_HEIGHT;
-    toggleBtn: View;
-    dock: View;
+  private shown: boolean = false;
+  toggleLength: number = TOGGLE_BTN_HEIGHT;
+  toggleBtn: View;
+  dock: View;
 
-    private offsetShown: number;
-    private offsetHidden: number;
+  private offsetShown: number;
+  private offsetHidden: number;
 
-    ngAfterViewInit() {
-        const height = screen.mainScreen.heightDIPs - STATUS_BAR_HEIGHT - SOFT_BUTTON_HEIGHT;
-        this.offsetHidden = height - this.toggleLength;
-        this.offsetShown = height * this.screenCover - this.toggleLength;
-        this.toggleBtn = <View>this.toggleBtnEl.nativeElement;
-        this.dock = <View>this.dockEl.nativeElement;
+  constructor(private page: Page) {
+  }
 
-        this.dock.translateY = this.offsetHidden;
-        this.dock.height = this.offsetHidden - this.offsetShown + this.toggleLength;
+  ngAfterViewInit() {
+    this.toggleBtn = <View>this.toggleBtnEl.nativeElement;
+    this.dock = <View>this.dockEl.nativeElement;
+    setTimeout(() => this.setup(), 100);    
+  }
+
+  private setup() {
+    const height = this.dock.getActualSize().height;
+    console.log("Dock height: " + height); 
+    this.offsetHidden = height - this.toggleLength;
+    this.offsetShown = height * this.screenCover - this.toggleLength;
+
+    this.dock.height = this.offsetHidden - this.offsetShown + this.toggleLength;
+    this.dock.animate({ translate: { x: 0, y: this.offsetHidden } });
+  }
+
+
+
+  toggleShown() {
+    this.shown = !this.shown;
+    if (this.shown) {
+      this.toggleBtn.animate({ rotate: 180 });
+      this.dock.animate({ translate: { x: 0, y: this.offsetShown } });
+    } else {
+      this.toggleBtn.animate({ rotate: 0 });
+      this.dock.animate({ translate: { x: 0, y: this.offsetHidden } });
     }
-
-    toggleShown() {
-        this.shown = !this.shown;
-        if (this.shown) {
-            this.toggleBtn.animate({ rotate: 180 });
-            this.dock.animate({ translate: { x: 0, y: this.offsetShown } });
-        } else {
-            this.toggleBtn.animate({ rotate: 0 });
-            this.dock.animate({ translate: { x: 0, y: this.offsetHidden } });
-        }
-    }
+  }
 }
