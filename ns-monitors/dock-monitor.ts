@@ -1,7 +1,10 @@
 import {Component, ChangeDetectionStrategy, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
-import {View} from "ui/core/view";
-import {Page} from "ui/page";
-import {screen, isIOS} from "platform";
+import {View} from "tns-core-modules/ui/core/view";
+import {Page} from "tns-core-modules/ui/page";
+import {screen, isIOS} from "tns-core-modules/platform";
+// import {View} from "tns- ui/core/view";
+// import {Page} from "ui/page";
+// import {screen, isIOS} from "platform";
 
 const TOGGLE_BTN_HEIGHT = 40;
 
