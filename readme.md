@@ -2,9 +2,33 @@
 Implementation of a devtools monitor similar to those available in [@ngrx/store-devtools](https://github.com/ngrx/store-devtools) for [NativeScript](https://www.nativescript.org/).
 
 ## How to use
-First of all you should instrument your @ngrx/store using `StoreDevtoolsModule.instrumentStore(...)`. Check out [@ngrx/devtools readme](https://github.com/ngrx/devtools/blob/master/README.md) for how to do that.
+First of all you should instrument your @ngrx/store using `StoreModule.provideStore(...)`. Check out [@ngrx/devtools readme](https://github.com/ngrx/devtools/blob/master/README.md) for how to do that.
 
-Include `<ns-dock-monitor>` component inside you application - preferably in the root of the visual tree.
+Import the `NativeScriptDevToolsMonitors` in your app(or other) module and add store-dev-tools instrumentation by importing `StoreDevtoolsModule.instrumentStore()`:
+
+```
+import { NgModule } from "@angular/core";
+import { StoreModule } from '@ngrx/store';
+import { NativeScriptDevToolsMonitors } from "ngrx-devtools-nativescript";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+@NgModule({
+  imports: [
+    NativeScriptModule,
+    NativeScriptDevToolsMonitors,
+    StoreModule.provideStore({ ... }),
+    StoreDevtoolsModule.instrumentStore()
+  ],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+class AppModule { };
+
+```
+
+
+
+Use `<ns-dock-monitor>` component inside you application - preferably in the root of the visual tree.
 
 ```
 import { NSDockMonitor } from "ngrx-devtools-nativescript";

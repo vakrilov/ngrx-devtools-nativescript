@@ -1,10 +1,8 @@
-import {Component, ChangeDetectionStrategy, ViewChild, ElementRef, AfterViewInit, Input} from '@angular/core';
-import {View} from "tns-core-modules/ui/core/view";
-import {Page} from "tns-core-modules/ui/page";
-import {screen, isIOS} from "tns-core-modules/platform";
-// import {View} from "tns- ui/core/view";
-// import {Page} from "ui/page";
-// import {screen, isIOS} from "platform";
+import { Component, ChangeDetectionStrategy, ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
+import { View } from "tns-core-modules/ui/core/view";
+import { Page } from "tns-core-modules/ui/page";
+import { screen, isIOS } from "tns-core-modules/platform";
+
 
 const TOGGLE_BTN_HEIGHT = 40;
 
@@ -28,7 +26,7 @@ const TOGGLE_BTN_HEIGHT = 40;
     }
   `],
   template: `
-    <grid-layout rows="auto *" #dock class="dock" rowSpan="100" colSpan="100" translateY="1000">
+    <grid-layout rows="auto *" #dock class="dock" rowSpan="100" colSpan="100" translateY="1000" (loaded)="dockLoaded($event)">
       <label text="^" (tap)="toggleShown()" #toggle [width]="toggleLength" [height]="toggleLength" class="toggle"></label>
       <grid-layout row="1">
         <ns-log-monitor></ns-log-monitor>
@@ -54,21 +52,22 @@ export class NSDockMonitor implements AfterViewInit {
 
   ngAfterViewInit() {
     this.toggleBtn = <View>this.toggleBtnEl.nativeElement;
-    this.dock = <View>this.dockEl.nativeElement;
-    setTimeout(() => this.setup(), 100);    
+  }
+
+  dockLoaded(args) {
+    this.dock = <View>args.object;
+    setTimeout(() => this.setup(), 100);
   }
 
   private setup() {
     const height = this.dock.getActualSize().height;
-    console.log("Dock height: " + height); 
+    console.log("Dock height: " + height);
     this.offsetHidden = height - this.toggleLength;
     this.offsetShown = height * this.screenCover - this.toggleLength;
 
     this.dock.height = this.offsetHidden - this.offsetShown + this.toggleLength;
     this.dock.animate({ translate: { x: 0, y: this.offsetHidden } });
   }
-
-
 
   toggleShown() {
     this.shown = !this.shown;
