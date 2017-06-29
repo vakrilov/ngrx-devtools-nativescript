@@ -1,16 +1,4 @@
 {
-    "private": false,
-    "nativescript": {
-        "id": "org.nativescript.helloworldng"
-    },
-    "name": "tns-template-hello-world-ng",
-    "main": "app.module.js",
-    "version": "2.2.3",
-    "author": "Telerik <support@telerik.com>",
-    "description": "Nativescript Angular Hello World template",
-    "license": "BSD",
-    "homepage": "https://github.com/NativeScript/template-hello-world-ng",
-    "android": {
-        "v8Flags": "--expose_gc"
-    }
+    "name": "counter",
+    "main": "app.module.js"
 }

@@ -47,7 +47,7 @@
     "zone.js": "~0.8.2"
   },
   "dependencies": {
-    "nativescript-angular": "~3.0.0",
-    "tns-core-modules": "~3.0.1"
+    "nativescript-angular": "^3.0.0",
+    "tns-core-modules": "^3.0.1"
   }
 }
