@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/platform";
-
+import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { NSDockMonitor } from './ns-monitors/dock-monitor';
 import { NSLogMonitor } from './ns-monitors/log-monitor';

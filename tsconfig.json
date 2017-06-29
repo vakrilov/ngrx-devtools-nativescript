@@ -7,7 +7,12 @@
         "emitDecoratorMetadata": true,
         "noEmitHelpers": true,
         "noEmitOnError": true,
-        "declaration": true
+        "declaration": true,
+        "lib": [
+            "es6",
+            "dom",
+            "es2015.iterable"
+        ]
     },
     "exclude": [
         "node_modules",
