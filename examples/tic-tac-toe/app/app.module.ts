@@ -18,8 +18,8 @@ import { PlayerPipe } from './player.pipe';
   imports: [
     NativeScriptModule,
     NativeScriptDevToolsMonitors,
-    StoreModule.provideStore({ board: logger(boardReducer) }),
-    StoreDevtoolsModule.instrumentStore()
+    StoreModule.forRoot({ board: logger(boardReducer) }),
+    StoreDevtoolsModule.instrument()
   ],
   bootstrap: [AppComponent]
 })

@@ -15,8 +15,8 @@ import { AppComponent } from "./app.component";
   imports: [
     NativeScriptModule,
     NativeScriptDevToolsMonitors,
-    StoreModule.provideStore({ counter: counterReducer }),
-    StoreDevtoolsModule.instrumentStore()
+    StoreModule.forRoot({ counter: counterReducer }),
+    StoreDevtoolsModule.instrument()
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

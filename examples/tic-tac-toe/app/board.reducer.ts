@@ -1,4 +1,4 @@
-import {ActionReducer, Action} from '@ngrx/store';
+import { ActionReducer, Action } from '@ngrx/store';
 
 export const PLAY_X = 'PLAY_X';
 export const PLAY_O = 'PLAY_O';
@@ -15,7 +15,7 @@ interface BoardPayload {
 }
 
 export const boardReducer: ActionReducer<Array<number>> = (state: Array<number> = initalState, action: Action) => {
-    let payload: BoardPayload = action.payload;
+    let payload: BoardPayload = (<any>action).payload;
     switch (action.type) {
         case PLAY_X:
             return reduceBoard(state, payload.row, payload.col, 1);
