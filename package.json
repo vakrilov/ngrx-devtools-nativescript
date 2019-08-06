@@ -1,6 +1,6 @@
 {
   "name": "ngrx-devtools-nativescript",
-  "version": "0.5.0",
+  "version": "6.0.0",
   "description": "Nativescript devtools for ngrx",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -21,27 +21,25 @@
   "author": "Alexander Vakrilov",
   "license": "MIT",
   "devDependencies": {
-    "@angular/common": "~4.2.6",
-    "@angular/compiler": "~4.2.6",
-    "@angular/core": "~4.2.6",
-    "@angular/forms": "~4.2.6",
-    "@angular/http": "~4.2.6",
-    "@angular/platform-browser": "~4.2.6",
-    "@angular/router": "~4.2.6",
-    "@ngrx/store": "^4.0.3",
-    "@ngrx/store-devtools": "^4.0.0",
-    "nativescript-angular": "^4.2.0",
-    "rxjs": "~5.3.0",
-    "tns-core-modules": "^3.0.0",
-    "typescript": "~2.3.4",
-    "zone.js": "^0.8.4"
+    "@angular/common": "^8.0.0",
+    "@angular/compiler": "^8.0.0",
+    "@angular/core": "^8.0.0",
+    "@angular/forms": "^8.0.0",
+    "@angular/platform-browser": "^8.0.0",
+    "@ngrx/store": "^8.0.0",
+    "@ngrx/store-devtools": "^8.0.0",
+    "nativescript-angular": "^8.0.0",
+    "rxjs": "^6.3.3",
+    "tns-core-modules": "^6.0.0",
+    "typescript": "~3.4.5",
+    "zone.js": "^0.9.1"
   },
   "peerDependencies": {
-    "@angular/common": "~4.2.6",
-    "@angular/core": "~4.2.6",
-    "@ngrx/store": "^4.0.3",
-    "@ngrx/store-devtools": "^4.0.0",
-    "nativescript-angular": "^4.2.0",
-    "tns-core-modules": "^3.0.0"
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0",
+    "@ngrx/store": "^8.0.0",
+    "@ngrx/store-devtools": "^8.0.0",
+    "nativescript-angular": "^8.0.0",
+    "tns-core-modules": "^6.0.0"
   }
 }

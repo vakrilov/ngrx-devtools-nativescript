@@ -36,8 +36,8 @@ const TOGGLE_BTN_HEIGHT = 40;
 })
 export class NSDockMonitor implements AfterViewInit {
   @Input() screenCover: number = 0.5;
-  @ViewChild("toggle") toggleBtnEl: ElementRef;
-  @ViewChild("dock") dockEl: ElementRef;
+  @ViewChild("toggle", { static: false }) toggleBtnEl: ElementRef;
+  @ViewChild("dock", { static: false }) dockEl: ElementRef;
 
   private shown: boolean = false;
   toggleLength: number = TOGGLE_BTN_HEIGHT;

@@ -6,7 +6,7 @@ hooks
 **/*.js
 **/*.js.map
 *.tgz
-.DC_Store
+.DS_Store
 
 *.d.ts
 !global.d.ts
