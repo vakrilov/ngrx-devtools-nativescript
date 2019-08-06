@@ -1,10 +1,10 @@
-import {Component, ChangeDetectionStrategy} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import {StoreDevtools} from '@ngrx/store-devtools';
+import { StoreDevtools } from '@ngrx/store-devtools';
 
-import {LogEntryItem} from './log-entry-item';
+import { LogEntryItem } from './log-entry-item';
 
 @Component({
   selector: 'ns-log-monitor',
@@ -60,12 +60,12 @@ export class NSLogMonitor {
   private canCommit$: Observable<boolean>;
 
   constructor(private devtools: StoreDevtools) {
-    this.canRevert$ = devtools.liftedState.map(s => !(s.computedStates.length > 1));
-    this.canSweep$ = devtools.liftedState.map(s => !(s.skippedActionIds.length > 0));
-    this.canCommit$ = devtools.liftedState.map(s => !(s.computedStates.length > 1));
+    this.canRevert$ = devtools.liftedState.pipe(map(s => !(s.computedStates.length > 1)));
+    this.canSweep$ = devtools.liftedState.pipe(map(s => !(s.skippedActionIds.length > 0)));
+    this.canCommit$ = devtools.liftedState.pipe(map(s => !(s.computedStates.length > 1)));
 
-    this.items$ = devtools.liftedState
-      .map(({ actionsById, skippedActionIds, stagedActionIds, computedStates }) => {
+    this.items$ = devtools.liftedState.pipe(
+      map(({ actionsById, skippedActionIds, stagedActionIds, computedStates }) => {
         const actions = [];
 
         for (let i = 0; i < stagedActionIds.length; i++) {
@@ -89,7 +89,7 @@ export class NSLogMonitor {
         }
 
         return actions.slice(1);
-      });
+      }));
   }
 
   handleToggle(id: number) {

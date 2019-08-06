@@ -1,8 +1,7 @@
-import {Component, OnDestroy} from "@angular/core";
-import {Observable, Subscription} from "rxjs";
-import "rxjs/add/operator/map";
-import {Store} from '@ngrx/store';
-import {PLAY_O, PLAY_X, RESET, checkWinner} from './board.reducer';
+import { Component, OnDestroy } from "@angular/core";
+import { Observable, Subscription } from "rxjs";
+import { Store } from '@ngrx/store';
+import { PLAY_O, PLAY_X, RESET, checkWinner } from './board.reducer';
 
 interface AppState {
   board: Array<number>;
