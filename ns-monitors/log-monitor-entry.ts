@@ -7,7 +7,10 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import {LogEntryItem} from './log-entry-item';
+import { LogEntryItem } from './log-entry-item';
+import { isIOS } from 'tns-core-modules/platform';
+
+let logSuffixCount = 0;
 
 @Component({
   selector: 'log-monitor-entry',
@@ -65,10 +68,19 @@ export class LogMonitorEntry {
   }
 
   logPayload() {
-    console.log("ACTION: " + JSON.stringify(this.item.action));
+    console.log("ACTION: " + JSON.stringify(this.item.action) + this.logSuffix());
   }
 
   logState() {
-    console.log("STATE: " + JSON.stringify(this.item.state));
+    console.log("STATE: " + JSON.stringify(this.item.state) + this.logSuffix());
+  }
+
+  private logSuffix(): string {
+    // IOS console stacks same messages. Add an " " suffix on every second message to prevent that.
+    if (isIOS) {
+      return (logSuffixCount++ % 2) ? "" : " ";
+    } else {
+      return "";
+    }
   }
 }
