@@ -12,9 +12,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-  <label [text]="text" (tap)="handleAction()" [class.disabled]="disabled"></label>`,
+  <button [text]="text" (tap)="handleAction()" [class.disabled]="disabled"></button>`,
   styles: [`
-     label {
+     button {
       font-family: monospace;
       font-weight: bold;
       border-radius: 3;

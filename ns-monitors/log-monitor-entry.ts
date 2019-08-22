@@ -14,10 +14,12 @@ import {LogEntryItem} from './log-entry-item';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-    <grid-layout columns="* auto" class="container" [class.even]="even" (tap)="handleToggle()"> 
-      <label [text]="item.action.type"
-            class="title-bar"
-            [class.collapsed]="item.collapsed"></label>
+    <grid-layout columns="* auto" class="container" [class.even]="even"> 
+      <grid-layout (tap)="handleToggle()">
+        <label [text]="item.action.type"
+              class="title-bar"
+              [class.collapsed]="item.collapsed"></label>
+      </grid-layout>
       
       <stack-layout col="1" *ngIf="!item.collapsed" orientation="horizontal">   
         <log-monitor-button (action)="logPayload()" text="Log Payload">
@@ -31,6 +33,7 @@ import {LogEntryItem} from './log-entry-item';
   styles: [`
     .container {
       horizontal-align: stretch;
+      height: 32;
     }
     .title-bar {
       text-align: left;

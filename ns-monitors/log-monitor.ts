@@ -17,6 +17,7 @@ import { LogEntryItem } from './log-entry-item';
     
     .toolbar {
       horizontal-align: center;
+      height: 32;
     }
 
     .items {
