@@ -53,3 +53,6 @@ You can specify what part of the screen should be covered by the dev-tools slide
 Example projects: 
   * [counter](https://github.com/vakrilov/ngrx-devtools-nativescript/tree/master/examples/counter)
   * [tic-tac-toe](https://github.com/vakrilov/ngrx-devtools-nativescript/tree/master/examples/tic-tac-toe)
+  
+## Pure Redux example with Vanilla JS {N} App
+  * [reduxDemo](https://github.com/shiv19/nativescript-redux-poc)
