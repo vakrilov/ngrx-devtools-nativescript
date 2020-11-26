@@ -1,4 +1,7 @@
-#ngrx-devtools-nativescript
+## Looking for mainteners
+This repo is looking for maintainers. If you are interested plase ping me on https://twitter.com/ufsa
+
+# ngrx-devtools-nativescript
 Implementation of a devtools monitor similar to those available in [@ngrx/store-devtools](https://github.com/ngrx/store-devtools) for [NativeScript](https://www.nativescript.org/).
 
 ## How to use
