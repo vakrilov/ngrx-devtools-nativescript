@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 import { LogEntryItem } from './log-entry-item';
-import { isIOS } from 'tns-core-modules/platform';
+import { isIOS } from '@nativescript/core';
 
 let logSuffixCount = 0;
 
@@ -17,17 +17,17 @@ let logSuffixCount = 0;
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-    <grid-layout columns="* auto" class="container" [class.even]="even"> 
+    <grid-layout columns="* auto" class="container" [class.even]="even">
       <grid-layout (tap)="handleToggle()">
         <label [text]="item.action.type"
               class="title-bar"
               [class.collapsed]="item.collapsed"></label>
       </grid-layout>
-      
-      <stack-layout col="1" *ngIf="!item.collapsed" orientation="horizontal">   
+
+      <stack-layout col="1" *ngIf="!item.collapsed" orientation="horizontal">
         <log-monitor-button (action)="logPayload()" text="Log Payload">
         </log-monitor-button>
-        
+
         <log-monitor-button (action)="logState()" text="Log State">
         </log-monitor-button>
       </stack-layout>
@@ -42,7 +42,7 @@ let logSuffixCount = 0;
       text-align: left;
       horizontal-align: stretch;
       vertical-align: center;
-      margin: 8 10;
+      margin: 6 10;
       font-family: monosapce;
       color: #FFFFFF;
       font-size: 12;

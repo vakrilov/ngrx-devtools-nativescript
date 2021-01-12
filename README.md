@@ -1,15 +1,24 @@
-## Looking for mainteners
-This repo is looking for maintainers. If you are interested plase ping me on https://twitter.com/ufsa
+## Looking for maintainers
+
+This repo is looking for maintainers. If you are interested please ping me on <https://twitter.com/ufsa>
 
 # ngrx-devtools-nativescript
+
 Implementation of a devtools monitor similar to those available in [@ngrx/store-devtools](https://github.com/ngrx/store-devtools) for [NativeScript](https://www.nativescript.org/).
 
+## Install
+
+```sh
+npm i ngrx-devtools-nativescript
+```
+
 ## How to use
+
 First of all you should instrument your @ngrx/store using `StoreModule.provideStore(...)`. Check out [@ngrx/devtools readme](https://github.com/ngrx/devtools/blob/master/README.md) for how to do that.
 
 Import the `NativeScriptDevToolsMonitors` in your app(or other) module and add store-dev-tools instrumentation by importing `StoreDevtoolsModule.instrumentStore()`:
 
-```
+```typescript
 import { NgModule } from "@angular/core";
 import { StoreModule } from '@ngrx/store';
 import { NativeScriptDevToolsMonitors } from "ngrx-devtools-nativescript";
@@ -29,11 +38,9 @@ class AppModule { };
 
 ```
 
-
-
 Use `<ns-dock-monitor>` component inside you application - preferably in the root of the visual tree.
 
-```
+```typescript
 import { NSDockMonitor } from "ngrx-devtools-nativescript";
 
 @Component({
@@ -50,12 +57,15 @@ export class AppComponent {
 }
 ```
 
-You can specify what part of the screen should be covered by the dev-tools slideout with the `screenCover` proeprty.
+You can specify what part of the screen should be covered by the dev-tools slideout with the `screenCover` property.
 
 ## Example
-Example projects: 
-  * [counter](https://github.com/vakrilov/ngrx-devtools-nativescript/tree/master/examples/counter)
-  * [tic-tac-toe](https://github.com/vakrilov/ngrx-devtools-nativescript/tree/master/examples/tic-tac-toe)
+
+Example projects:
+
+* [counter](https://github.com/vakrilov/ngrx-devtools-nativescript/tree/master/examples/counter)
+* [tic-tac-toe](https://github.com/vakrilov/ngrx-devtools-nativescript/tree/master/examples/tic-tac-toe)
   
 ## Pure Redux example with Vanilla JS {N} App
-  * [reduxDemo](https://github.com/shiv19/nativescript-redux-poc)
+
+* [reduxDemo](https://github.com/shiv19/nativescript-redux-poc)

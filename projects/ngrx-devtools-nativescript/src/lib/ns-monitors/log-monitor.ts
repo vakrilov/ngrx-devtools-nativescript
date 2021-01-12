@@ -14,7 +14,7 @@ import { LogEntryItem } from './log-entry-item';
       background-color: #2A2F3A;
       font-family: monospace;
     }
-    
+
     .toolbar {
       horizontal-align: center;
       height: 32;
@@ -40,7 +40,7 @@ import { LogEntryItem } from './log-entry-item';
         <log-monitor-button text="Commit" (action)="handleCommit()" [disabled]="canCommit$ | async">
         </log-monitor-button>
       </stack-layout>
-      
+
       <scroll-view row="1">
         <stack-layout class="items">
           <log-monitor-entry
@@ -55,10 +55,10 @@ import { LogEntryItem } from './log-entry-item';
   `
 })
 export class NSLogMonitor {
-  private items$: Observable<LogEntryItem[]>;
-  private canRevert$: Observable<boolean>;
-  private canSweep$: Observable<boolean>;
-  private canCommit$: Observable<boolean>;
+  items$: Observable<LogEntryItem[]>;
+  canRevert$: Observable<boolean>;
+  canSweep$: Observable<boolean>;
+  canCommit$: Observable<boolean>;
 
   constructor(private devtools: StoreDevtools) {
     this.canRevert$ = devtools.liftedState.pipe(map(s => !(s.computedStates.length > 1)));

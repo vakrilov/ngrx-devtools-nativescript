@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NativeScriptModule } from '@nativescript/angular';
 
 import { NSDockMonitor } from './ns-monitors/dock-monitor';
 import { NSLogMonitor } from './ns-monitors/log-monitor';
@@ -9,7 +9,8 @@ import { LogMonitorButton } from './ns-monitors/log-monitor-button';
 @NgModule({
   declarations: [LogMonitorEntry, LogMonitorButton, NSLogMonitor, NSDockMonitor],
   imports: [NativeScriptModule],
-  exports: [NSDockMonitor]
+  exports: [NSDockMonitor],
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class NativeScriptDevToolsMonitors {
 }

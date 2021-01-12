@@ -1,22 +1,25 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "sourceMap": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "noEmitHelpers": true,
-        "noEmitOnError": true,
-        "declaration": true,
-        "lib": [
-            "es6",
-            "dom",
-            "es2015.iterable"
-        ]
-    },
-    "exclude": [
-        "node_modules",
-        "platforms",
-        "examples"
-    ]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "ngrx-devtools-nativescript": [
+        "dist/ngrx-devtools-nativescript/ngrx-devtools-nativescript",
+        "dist/ngrx-devtools-nativescript"
+      ]
+    }
+  }
 }
