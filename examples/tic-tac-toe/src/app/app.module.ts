@@ -1,9 +1,9 @@
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptDevToolsMonitors } from "ngrx-devtools-nativescript";
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { NativeScriptModule } from "@nativescript/angular";
 
-import { NgModule } from "@angular/core";
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { NativeScriptDevToolsMonitors } from "ngrx-devtools-nativescript";
 
 import { AppComponent } from "./app.component";
 import { boardReducer } from './board.reducer';
@@ -21,6 +21,10 @@ import { PlayerPipe } from './player.pipe';
     StoreModule.forRoot({ board: logger(boardReducer) }),
     StoreDevtoolsModule.instrument()
   ],
+  providers: [],
+  schemas: [
+      NO_ERRORS_SCHEMA
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { };
+export class AppModule { }
