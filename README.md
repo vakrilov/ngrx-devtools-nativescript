@@ -69,3 +69,16 @@ Example projects:
 ## Pure Redux example with Vanilla JS {N} App
 
 * [reduxDemo](https://github.com/shiv19/nativescript-redux-poc)
+
+## Contributing
+
+* Source files for this tool (as an Angular library) are located: `./projects/ngrx-devtools-nativescript/src/lib`
+* Build output will be in: `./dist/ngrx-devtools-nativescript`
+* Build commands:
+
+  ```sh
+  npm i
+  ng build ngrx-devtools-nativescript --prod
+  cd dist/ngrx-devtools-nativescript
+  npm publish  # or 'npm pack' for a local build
+  ```

@@ -3,10 +3,11 @@
 * Upgrade to NativeScript v7!
 * Upgrade to Angular 11!
 * Using official Angular build system process for libraries based on `ng-packagr` for Angular 9+ compatibility. Generated code is compatible with `Ivy` based Angular projects, as well as backward compatible with `View Engine` based Angular projects.
-  https://angular.io/guide/creating-libraries
+  <https://angular.io/guide/creating-libraries>
   * Source files for this tool (as an Angular library) are located: `./projects/ngrx-devtools-nativescript/src/lib`
   * Build output will be in: `./dist/ngrx-devtools-nativescript`
   * Build commands:
+
     ```sh
     ng build ngrx-devtools-nativescript --prod
     cd dist/ngrx-devtools-nativescript
