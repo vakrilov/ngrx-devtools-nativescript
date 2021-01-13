@@ -11,12 +11,12 @@ interface AppState {
 @Component({
   selector: "my-app",
   template: `
-  <GridLayout rows="auto, auto, *" columns="* auto *">
-    <Button text="-" (tap)="decrement()" class="counter-btn" col="0"></Button>
-    <Label [text]="counter$ | async" class="counter" col="1"></Label>
-    <Button text="+" (tap)="increment()" class="counter-btn" col="2"></Button>
+  <GridLayout rows="auto, auto, *" columns="* auto *" class="m-t-30 p-t-30">
+    <Button text="-" (tap)="decrement()" class="counter-btn" col="0" class="-primary h3"></Button>
+    <Label [text]="counter$ | async" class="counter" col="1" class="h1"></Label>
+    <Button text="+" (tap)="increment()" class="counter-btn" col="2" class="-primary"></Button>
 
-    <Button row="1" colSpan="3" text="reset" (tap)="reset()" class="counter-btn"></Button>
+    <Button row="1" colSpan="3" text="reset" (tap)="reset()" class="counter-btn" class="-outline"></Button>
 
     <ns-dock-monitor screenCover="0.5"></ns-dock-monitor>
   </GridLayout>

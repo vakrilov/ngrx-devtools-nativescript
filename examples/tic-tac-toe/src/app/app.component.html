@@ -1,7 +1,7 @@
-<grid-layout rows="50, auto, auto, *">
-  <button text="new game" (tap)="reset()"></button>
+<grid-layout rows="50, auto, auto, *" class="grid">
+  <button text="new game" (tap)="reset()" class="-primary"></button>
 
-  <label row="1" [text]="currentPlayer ? 'X is next' : 'O is next'" class="next" ></label>
+  <label row="1" [text]="currentPlayer ? 'X is next' : 'O is next'" class="next h1" ></label>
 
   <grid-layout row="2" class="board">
     <board [data]="board$ | async" (action)="positionSelected($event, currentPlayer)" ></board>
